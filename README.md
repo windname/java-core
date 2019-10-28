@@ -1,1 +1,2 @@
-# java7
+# java-core
+added different folder
