@@ -1,4 +1,4 @@
-package com.vg.certif;
+package com.vg.java.algorithm;
 
 /**
  * Hello world!
