@@ -1,4 +1,4 @@
-package com.vg.java.algorithm;
+package com.vg.algorithm;
 
 
 /**
