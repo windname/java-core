@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.vg.certif</groupId>
-  <artifactId>java7</artifactId>
+  <artifactId>java-core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>java7</name>
+  <name>java-core</name>
   <url>http://maven.apache.org</url>
 
   <properties>
