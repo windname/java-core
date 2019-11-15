@@ -39,9 +39,5 @@ public class TestForEach {
 		// other option it to create a new list and append to an existing
 		List<String> upperCaseList2 = list.stream().map(name -> name.toUpperCase()).collect(Collectors.toList());
 		upperCaseList2.forEach(System.out::println);
-		
-		
-		
-
 	}
 }

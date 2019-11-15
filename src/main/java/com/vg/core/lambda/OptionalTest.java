@@ -3,12 +3,12 @@ package com.vg.core.lambda;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class NullChecks {
+public class OptionalTest {
 	public static void main(String[] str) {
-		new NullChecks();
+		new OptionalTest();
 	}
 
-	public NullChecks() {
+	public OptionalTest() {
 		Optional<String> str = getString();
 		str.ifPresent(System.out::println); // just print hello string or do nothing if getString returns null
 
@@ -30,7 +30,10 @@ public class NullChecks {
 
 		Optional<Article> article = getNullArticle();
 		article.map(Article::getName).ifPresent(System.out::println); // nothing article is null
-		getArticle(null).map(Article::getName).ifPresent(System.out::println); // nothing name is null
+
+		Optional<String> optionalName = getArticle(null).map(Article::getName);
+		optionalName.ifPresent(System.out::println); // nothing name is null
+
 		getArticle("my Article").map(Article::getName).ifPresent(System.out::println); // returns article name
 		
 		String name = getArticle("new article").map(Article::getName).orElse("Default Article");
@@ -41,8 +44,10 @@ public class NullChecks {
 		if (!getNullArticle().isPresent()) {
 			System.out.println("Nothing!");
 		}
-		
-		getMagazine(null, null).flatMap(Magazine::getA).ifPresent(a->print(a)); // do nothing
+
+		Optional<Article> article1 = getMagazine(null, null).flatMap(Magazine::getA);
+		article1.ifPresent(a->print(a)); // do nothing
+
 		getMagazine("magaz", null).flatMap(Magazine::getA).ifPresent(a->print(a)); // do nothing
 		getMagazine("magaz", "art").flatMap(Magazine::getA).ifPresent(a->print(a)); // art
 //		getMagazine("magaz", "art").map(Magazine::getA).ifPresent(a->print(a)); type is not compatible

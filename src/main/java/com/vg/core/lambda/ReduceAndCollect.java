@@ -1,6 +1,7 @@
 package com.vg.core.lambda;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.IntConsumer;
@@ -9,6 +10,14 @@ import java.util.stream.Collectors;
 public class ReduceAndCollect {
 
 	public static void main(String[] str) {
+
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+		System.out.print(
+				numbers.stream()
+						.reduce(0, (subtotal, element) -> subtotal + element)
+		);
+
+
 		List<Person> persons = new ArrayList<Person>();
 		persons.add(new Person(25, "Monika", Sex.Female));
 		persons.add(new Person(35, "Jesica", Sex.Female));
@@ -40,10 +49,8 @@ public class ReduceAndCollect {
         Map<Sex, Double> averageAgeByGender =
         		persons.stream().collect(Collectors.groupingBy(Person::getGender,Collectors.averagingInt(Person::getAge)));
         System.out.println("avergae age by gender " + averageAgeByGender);
-		
 
 	}
-
 }
 
 class Averager implements IntConsumer
