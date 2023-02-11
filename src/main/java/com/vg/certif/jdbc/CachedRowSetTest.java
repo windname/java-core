@@ -6,11 +6,11 @@
 
 package com.vg.certif.jdbc;
 
-import java.sql.SQLException;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 import javax.sql.rowset.spi.SyncProviderException;
 import javax.sql.rowset.spi.SyncResolver;
+import java.sql.SQLException;
 
 /**
  *

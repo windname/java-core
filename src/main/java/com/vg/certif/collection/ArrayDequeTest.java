@@ -7,8 +7,6 @@
 package com.vg.certif.collection;
 
 import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.List;
 
 /**
  *

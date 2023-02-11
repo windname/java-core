@@ -5,7 +5,6 @@
  */
 package com.vg.core.concur;
 
-import static java.lang.Thread.sleep;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;

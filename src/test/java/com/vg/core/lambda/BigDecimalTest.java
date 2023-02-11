@@ -1,10 +1,9 @@
 package com.vg.core.lambda;
 
-import static junit.framework.Assert.assertNotNull;
-//import static org.junit.Assert.assertNotNull;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
+import static junit.framework.Assert.assertNotNull;
 
 //import org.junit.Test;
 

@@ -6,10 +6,9 @@
 
 package com.vg.certif.jdbc;
 
-import com.sun.rowset.CachedRowSetImpl;
-import java.sql.SQLException;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
+import java.sql.SQLException;
 
 /**
  *

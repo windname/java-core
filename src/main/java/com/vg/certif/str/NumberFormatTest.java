@@ -7,8 +7,6 @@ package com.vg.certif.str;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.Collections;
-import java.util.List;
 
 /**
  *

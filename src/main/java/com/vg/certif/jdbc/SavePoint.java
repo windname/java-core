@@ -6,15 +6,10 @@
 
 package com.vg.certif.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
-import java.util.logging.Level;
 
 /**
  *

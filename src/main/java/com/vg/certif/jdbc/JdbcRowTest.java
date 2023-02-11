@@ -5,13 +5,9 @@
  */
 package com.vg.certif.jdbc;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
 import javax.sql.rowset.JdbcRowSet;
-import javax.sql.rowset.RowSetFactory;
 import javax.sql.rowset.RowSetProvider;
+import java.sql.SQLException;
 
 /**
  *

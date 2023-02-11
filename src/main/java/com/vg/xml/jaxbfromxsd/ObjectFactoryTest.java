@@ -1,11 +1,10 @@
 package com.vg.xml.jaxbfromxsd;
 
-import java.io.File;
-import java.io.FileReader;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.FileReader;
 
 /**
  * This class uses auto-generated jaxb classes in order to unmarshall java
