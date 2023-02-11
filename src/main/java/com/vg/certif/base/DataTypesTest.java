@@ -114,10 +114,10 @@ public class DataTypesTest {
 
 	public void numericTypePromotion() {
 		int i = 10; long l = 3;
-//		var res = i*l; // res promoted to long
+		var res = i*l; // res promoted to long
 
 		short s1 = 10; short s2 = 20;
-		// var s3 = s1*s2; // promoted to int
+		 var s3 = s1*s2; // promoted to int
 
 		short s4 = 10 * 20;
 
