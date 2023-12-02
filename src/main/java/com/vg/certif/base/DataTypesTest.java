@@ -5,7 +5,13 @@
  */
 package com.vg.certif.base;
 
+import java.io.Serializable;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -53,6 +59,8 @@ public class DataTypesTest {
 		//unboxing
 		Character charWrapper = Character.valueOf('c');
 		char c = charWrapper;
+
+		new DataTypesTest().enumTest();
 
 	}
 
@@ -106,10 +114,11 @@ public class DataTypesTest {
 
 		s = b;
 
+		long lo = 120l;
 		char c = 'a';
+		c = (char)lo;
 		Character charWrap = Character.valueOf('v');
-		c = (char)b;
-		charWrap = (char)b;
+		charWrap = (char)lo;
 	}
 
 	public void numericTypePromotion() {
@@ -125,7 +134,104 @@ public class DataTypesTest {
 
 	public void stringMethods() {
 		String str = "Hello";
-		str.length();
-		char c = str.charAt(0);
+		str.length(); //5
+		str.substring(1,3); //el
+		str.indexOf('e'); // 1
+		str.indexOf('l',2); //2
+		str.indexOf("lo"); // 3
+		char c = str.charAt(0); // string.H
+		System.out.println(c);
+		str.codePointAt(2); // 108 decimal value from  unicode of the char
+		str.equals(new String("Hello")); // true
+
+		StringBuilder build = new StringBuilder("Hello");
+		build.append("world"); // Helloworld;
+		build.insert(5, ' '); // Hello world
+		build.equals(new StringBuilder("Hello World")); // false
+		build.compareTo(new StringBuilder("Hello world")); // 0 menas equals from java 11
+		build.toString().equals(new StringBuilder("Hello world").toString()); // old way to compare SB
+		build.reverse(); // dlrow olleH
+
+
+	}
+
+	public void useVar() {
+		var f = 1.2f;
+//		var v = null; // not possible
+		var v = (String) null;
+//		var a = 3, b = 4; // compound declaration is not allow
+		var str = "String";
+		str = null;
+
+
+		for (var i = 0; i < 10; i++) {
+
+		}
+
+		List<String> result = List.of("hello", "how", "are", "you", "?");
+		var stringsList = List.of("hello", "how", "are", "you", "?"); // how it works?
+		var list1 = new ArrayList<>();
+
+		//Whole number inferred as integer
+		byte flags = 0;
+		short mask = 0x7fff;
+		long base = 17;
+
+		var flags1 = 0; //int
+		var mask1 = 0x7fff;//int
+		var base1 = 17;//int
+
+		BiFunction<Integer,Integer,String> f2 = (var a, var b) -> "Hello";
+//		BiFunction<Integer,Integer,String> f1 = (var a,  b) -> "Hello"; //wrong! issue with b param
+		BiFunction<Integer,Integer,String> f1 = (Integer a, Integer b) -> "Hello";
+//		BiFunction<Integer,Integer,String> f3 = (var a, Integer b) -> "Hello"; // wrong! mix of decalartions
+
+
+
+
+		//NonDenotable Anonymous Class
+		var productInfo = new Object() {
+			String name = "Apple";
+			int total = 0;
+		};
+
+		// NonDenotable Intersection Type
+		var action = (Function<Integer, Integer> & Serializable) i -> i + 1;
+
+	}
+
+	// is not keyword and possible to use as method name
+	private void var()
+	{
+		System.out.println("Using var as method name");
+	}
+
+	{
+		var num = 1.0;
+	}
+
+	enum Day {
+		SUNDAY("sun"), MONDAY("mon");
+		private String str;
+		Day(String str) {
+			this.str = str;
+		}
+	}
+	private void enumTest() {
+		Day d = Day.MONDAY;
+		for (var day : Day.values()) {
+			System.out.println(day.str);
+		}
+
+		var countries = List.of("moldova", "romania", "usa");
+		countries.stream().filter(c -> !Objects.isNull(c))
+				.map(c -> c.substring(0,1).toUpperCase(Locale.ROOT) + c.substring(1).toLowerCase(Locale.ROOT))
+				.peek(System.out::println)
+				.sorted((c1, c2) -> c1.length() - c2.length())
+				.collect(Collectors.toList()).stream().forEach(System.out::println);
+
+//		countries.stream().filter(c -> !Objects.isNull(c))
+//				.map(c -> c.substring(0,1).toUpperCase(Locale.ROOT) + c.substring(1).toLowerCase(Locale.ROOT))
+//				.forEach(System.out::println);
 	}
 }
